@@ -4,7 +4,7 @@ RabbitMQ Queue driver for Laravel
 
 ####Installation
 
-Require this package in your composer.json and run composer update (IMPORTANT! DO NOT USE "dev-master"):
+Require this package in your composer.json and run composer update (IMPORTANT! DO NOT USE "dev-master"):-
 
 	"queue-rabbitmq/laravel-queue-rabbitmq": "5.2"
     
