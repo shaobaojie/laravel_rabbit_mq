@@ -1,5 +1,5 @@
 {
-  "name": "laravel/laravel-queue-rabbitmq",
+  "name": "queue-rabbitmq/laravel-queue-rabbitmq",
   "version": "5.2",
   "description": "RabbitMQ driver for Laravel Queue",
   "license": "MIT",
