@@ -6,7 +6,7 @@ RabbitMQ Queue driver for Laravel
 
 Require this package in your composer.json and run composer update (IMPORTANT! DO NOT USE "dev-master"):
 
-	"vladimir-yuldashev/laravel-queue-rabbitmq": "5.2"
+	"queue-rabbitmq/laravel-queue-rabbitmq": "5.2"
     
 After composer update is finished you need to add ServiceProvider to your `providers` array in `app.php`:
 				
