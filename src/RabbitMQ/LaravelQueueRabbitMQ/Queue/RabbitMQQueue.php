@@ -8,6 +8,7 @@ use Illuminate\Queue\Queue;
 use Illuminate\Support\Arr;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Exception\AMQPRuntimeException;
 use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
 use Illuminate\Support\Str;
@@ -112,9 +113,13 @@ class RabbitMQQueue extends Queue implements QueueContract
     {
         $queue = $this->getQueueName($queue);
 
-        // declare queue if not exists
-        $this->declareQueue($queue);
-
+        try {
+            // declare queue if not exists
+            $this->declareQueue($queue);
+        } catch (AMQPRuntimeException $e) {
+            $this->connection->reconnect();
+            $this->declareQueue($queue);
+        }
         // get envelope
         $message = $this->channel->basic_get($queue);
 
